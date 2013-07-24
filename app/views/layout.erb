@@ -18,6 +18,20 @@
   <title></title>
 </head>
 <body>
+<a href='/'>Home</a>
+<% if logged_in? %>
+<a href='/sessions/end'>Log Out</a>
+<a href="/users/<%= session[:user_id] %>">My Profile</a>
+<% else %>
+<a href='/sessions/new'>Log In</a>
+<% end %>
   <%= yield %>
 </body>
 </html>
+
+
+<!-- if session[:user_id]
+  show this top navigation
+  -log out button
+  -view profile
+  -home/index -->

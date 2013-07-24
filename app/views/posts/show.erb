@@ -1,0 +1,21 @@
+<h3>Post: <%= @post.title %></h3>
+<p><%= @post.body %></p>
+
+
+<h3>Type a comment here:</h3>
+<form action="/comments" method="post">
+  <input type="hidden" name="post_id" value="<%= @post.id %>" />
+  <input type="text" name="content" placeholder="Comment" /><br /><br />
+  <input type="submit" />
+</form>
+<br /><br/>
+
+<h3>All comments:</h3>
+<ul>
+  <% @post.comments.each do |comment| %>
+    <li><%= comment.content %></li>
+      <% end%>
+  </ul>
+
+<a href='/'>Home</a>
+<a href='/sessions/end'>Log Out</a>

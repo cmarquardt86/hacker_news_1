@@ -1,4 +1,17 @@
-<h1><%= @user.name %></h1>
+<h1>Hello <%= @user.name %>!</h1>
 
-<a href='/'>Home</a>
-<a href='/sessions/end'>Log Out</a>
+<h3>Create new post:</h3>
+<form action="/posts" method="post">
+  <input type="text" name="title" placeholder="Post Title" /><br /><br />
+  <input type="text" name="body" placeholder="Post Body" />
+  <input type="submit" />
+</form>
+<br /><br/>
+
+<h3>All <%= @user.name%>'s posts:</h3>
+<ul>
+  <% @user.posts.each do |post| %>
+    <li><a href="/posts/<%= post.id %>"><%= post.title %></a></li>
+      <% end%>
+  </ul>
+
